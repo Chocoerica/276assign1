@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Calculator</title>
     <link rel="stylesheet" href="stylesheets/calculator.css"/>
-    <script src="calculator.js"></script>
+    <script src="calculator.js" defer></script>
 </head>
 <body>
     <div style="padding: 10px;background-color:black">
@@ -13,7 +13,7 @@
     </div>
     <div class="mainpage">
         <h1> Grade Calculator</h1>
-        <form>
+        <form id="form1">
             <b style="color: darkred">
                 Activities
             </b>
@@ -31,38 +31,44 @@
                     <th>A1</th>
                     <th>
                         <input type="text"
-                               id=" weight"
-                               value=" " />
+                               id="A1weight"
+                               name="A1w"
+							   value = ""/>
                     </th>
                     <th>
                         <input type="text"
-                               id=" Grade1"
-                               value=" " />
+							   name = "A1num"
+                               id="GradeA1num"
+                               value = "" />
                         /
                         <br />
                         <input type="text"
-                               id=" Grade2"
-                               value=" " />
+							   name = "A1den"
+                               id= "GradeA1den"
+                               value = "" />
                     </th>
-                    <th></th>
+                    <th id="percent"> 1 </th>
                 </tr>
                 <tr>
                     <th>Activity 2</th>
                     <th>A2</th>
                     <th>
                         <input type="text"
-                               id=" weight"
-                               value=" " />
+							   name = "A2w"
+                               id="A2weight"
+                               value = "" />
                     </th>
                     <th>
                         <input type="text"
-                               id=" Grade1"
-                               value=" " />
+							   name = "A2num"
+                               id=" GradeA2num"
+                               value = "" />
                         /
                         <br />
                         <input type="text"
-                               id=" Grade2"
-                               value=" " />
+							   name = "A2den"
+                               id= "GradeA2den"
+                               value = "" />
                     </th>
                     <th style="padding: 70px">      </th>
                 </tr>
@@ -70,39 +76,45 @@
                     <th>Activity 3</th>
                     <th>A3</th>
                     <th>
-                        <input type="text"
-                               id=" weight"
-                               value=" " />
+                        <input type= "text"
+							   name = "A3w"
+                               id= "A3weight"
+                               value = "" />
                     </th>
                     <th>
                         <input type="text"
-                               id=" Grade1"
-                               value=" " />
+							   name = "A3num"
+                               id= "GradeA3num"
+                               value = "" />
                         /
                         <br />
                         <input type="text"
-                               id=" Grade2"
-                               value=" " />
+							   name = "A3den"
+                               id= "GradeA3den"
+                               value = "" />
                     </th>
                     <th></th>
                 </tr>
                 <tr>
-                    <th>Activity 4</th>
+                    <th>Activity 4 </th>
                     <th>A4</th>
                     <th>
                         <input type="text"
-                               id=" weight"
-                               value=" " />
+							   name = "A4w"
+                               id= "A4weight"
+                               value = ""/>
                     </th>
                     <th>
                         <input type="text"
-                               id=" Grade1"
-                               value=" " />
+							   name = "A4num"
+                               id= "GradeA4num"
+                               value = "" />
                         /
                         <br />
                         <input type="text"
-                               id=" Grade2"
-                               value=" " />
+							   name = "A4den"
+                               id= "Grade4den"
+                               value = "" />
                     </th>
                     <th></th>
                 </tr>
@@ -111,12 +123,15 @@
             <b style="color: darkred; margin-top:10px;">
                 Result
             </b>
-            <br />
+			<div id= "result">
+			Result here
+			</div>
+            <br>
             <div class="buttons">
-                <button>
+                <button type = "button" id="weightbutton">
                     WEIGHTED
                 </button>
-                <button>
+                <button type = "button" id= "meanbutton">
                     MEAN
                 </button>
             </div>
