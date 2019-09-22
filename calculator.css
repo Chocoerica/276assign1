@@ -1,0 +1,67 @@
+﻿body {
+    background-color: darkred;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+h1 {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+b{
+    font-size:20px;
+    font-weight:bold;
+    padding-top: 30px;
+    margin-top:12px;
+}
+p{
+    padding-top:8px;
+    padding-bottom: 8px;
+}
+.mainpage{
+    padding-left: 20px;
+    padding-top:35px;
+    padding-right: 20%;
+    background-color: white;
+    padding-bottom: 20px;
+}
+.buttons{
+    margin-top:15px;
+    padding-left: 870px;
+}
+button {
+    background-color: darkred;
+    color: white; 
+    padding:5px;
+    padding-left:9px;
+    padding-right:9px;
+    border:hidden;
+    margin-left:6px;
+    border-radius:5px;
+}
+form {
+    background-color: rgb(212, 226, 231);
+    padding:10px;
+}
+table{
+    width:96%;
+    border: 2px solid silver;
+    border-collapse: collapse;
+    padding-left:10px;
+    padding-top: 20px;
+    padding-bottom:20px;
+    margin-bottom: 10px;
+}
+th, td {
+    border: 2px solid silver;
+    border-collapse: collapse;
+    padding-right: 60px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+input{
+    padding:8px;
+    margin-top:7px;
+    margin-bottom:7px;
+}
