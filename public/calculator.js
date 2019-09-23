@@ -13,18 +13,25 @@ function calculatepercentage() {
     for (var i = 0; i < x.length - 2; i = i + 3) {
         
         console.log("row number", rownum)
+        console.log("element lengths:", x.elements[i + 1].value.length, " and ",x.elements[i + 2].value.length)
         if (!((x.elements[i + 1].value.length == 0) || (x.elements[i + 2].value.length == 0))) { //remove inputs from form if they aren't filled out
             console.log(x.elements[i + 1].value, " ", x.elements[i + 2].value);
             var numerator = x.elements[i + 1].value;
-            var denominator =  x.elements[i + 2].value;
-            
+            var denominator = x.elements[i + 2].value;
+
             console.log("start calculate percentage");
             //calculate percentage
-            var percent = numerator / denominator;
+            var percent = (numerator / denominator).toFixed(2);
             console.log(percent);
             var percentID = "percent" + rownum;
             console.log("setting at", percentID);
             document.getElementById(percentID).innerHTML = percent.toString();
+        }
+        else {
+            var percentID = "percent" + rownum;
+            console.log("setting blank at", percentID);
+            var blank = "";
+            document.getElementById(percentID).innerHTML = blank;
         }
         rownum++;
     }    
@@ -32,12 +39,12 @@ function calculatepercentage() {
 
 var textboxes = document.getElementsByName("grades");
 for (var i=0; i<textboxes.length; i++){
-    textboxes[i].addEventListener('keyup', calculatepercentage);
+    textboxes[i].addEventListener('input', calculatepercentage);
 }
     
 
 
-//below is all done:
+//when mean button is pressed
 document.getElementById("meanbutton").addEventListener('click', function () {
     console.log("mean button clicked");
     var x = document.getElementById("form1");
@@ -67,7 +74,7 @@ document.getElementById("meanbutton").addEventListener('click', function () {
     }
     console.log("totals", total, "and length", percentages.length);
     //calculate mean by dividing
-    var mean =(( total / percentages.length)*100).toFixed(3);
+    var mean =(( total / percentages.length)*100).toFixed(2);
     
 
     if (isNaN(mean)) {
@@ -79,6 +86,7 @@ document.getElementById("meanbutton").addEventListener('click', function () {
     }
 })
 
+//When weight button is pressed
 document.getElementById("weightbutton").addEventListener('click', function () {
     console.log("weight button clicked");
     var x = document.getElementById("form1");
@@ -105,7 +113,7 @@ document.getElementById("weightbutton").addEventListener('click', function () {
     console.log("total weight", totalweight);
 
     //calculate mean with weights by dividing
-    var res= ((total / totalweight)*100).toFixed(3);
+    var res= ((total / totalweight)*100).toFixed(2);
     if (isNaN(res)) {
         document.getElementById("result").innerHTML = " ";
     }
@@ -118,19 +126,21 @@ document.getElementById("weightbutton").addEventListener('click', function () {
 
 //when click on the pic button
 document.getElementById("picbutton").addEventListener('click', function () {
+    
     //evaluate the result, if there exists a result then a picture will show up depending on how good the result is
-    var result = parseInt(document.getElementById("result"));
+    var result = parseInt((document.getElementById("result")).innerHTML);
     if (result.length != 0) { //if there is a result
         if (result > 100 || result < 0) {
-            document.getElementById("resimage").src = "images/rwar.jpg";
+            document.getElementById("resimage").src = "images/rawr.png";
         }
-        else if (result=>50 && result <= 100) {
+        else if (result>=50 && result <= 100) {
             //yay pass
-            document.getElementById("resimage").src = "images/pengudab.jpg";
+            document.getElementById("resimage").src = "images/pengudab.png";
         }
         else {
             //oh no fail
-            document.getElementById("resimage").src = "images/cries.jpg";
+            document.getElementById("resimage").src = "images/cries.png";
         }
     }
+    console.log("pic button pressed", result);
 })
