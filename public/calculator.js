@@ -68,8 +68,15 @@ document.getElementById("meanbutton").addEventListener('click', function () {
     console.log("totals", total, "and length", percentages.length);
     //calculate mean by dividing
     var mean =(( total / percentages.length)*100).toFixed(3);
-    console.log(mean);
-    document.getElementById("result").innerHTML = mean.toString() + "/100";
+    
+
+    if (isNaN(mean)) {
+        document.getElementById("result").innerHTML = " ";
+    }
+    else {
+        console.log(mean);
+        document.getElementById("result").innerHTML = mean.toString() + "/100";
+    }
 })
 
 document.getElementById("weightbutton").addEventListener('click', function () {
@@ -79,7 +86,7 @@ document.getElementById("weightbutton").addEventListener('click', function () {
     
     for (var i = 0; i < x.length - 2; i = i + 3) {
         console.log("i", i)
-        if (!((x.elements[i + 1].value.length == 0) || (x.elements[i + 2].value.length == 0))) { //remove inputs from form if they aren't filled out
+        if (!( (x.elements[i].value.length == 0) || (x.elements[i + 1].value.length == 0) || (x.elements[i + 2].value.length == 0))) { //remove inputs from form if they aren't filled out
             values.push(parseInt(x.elements[i].value));
             values.push(parseInt(x.elements[i + 1].value));
             values.push(parseInt(x.elements[i + 2].value));
@@ -99,7 +106,31 @@ document.getElementById("weightbutton").addEventListener('click', function () {
 
     //calculate mean with weights by dividing
     var res= ((total / totalweight)*100).toFixed(3);
+    if (isNaN(res)) {
+        document.getElementById("result").innerHTML = " ";
+    }
+    else {
+        console.log(res);
+        document.getElementById("result").innerHTML = res.toString() + "/100";
+    }
+    
+})
 
-    console.log(res);
-    document.getElementById("result").innerHTML = res.toString() + "/100";
+//when click on the pic button
+document.getElementById("picbutton").addEventListener('click', function () {
+    //evaluate the result, if there exists a result then a picture will show up depending on how good the result is
+    var result = parseInt(document.getElementById("result"));
+    if (result.length != 0) { //if there is a result
+        if (result > 100 || result < 0) {
+            document.getElementById("resimage").src = "images/rwar.jpg";
+        }
+        else if (result=>50 && result <= 100) {
+            //yay pass
+            document.getElementById("resimage").src = "images/pengudab.jpg";
+        }
+        else {
+            //oh no fail
+            document.getElementById("resimage").src = "images/cries.jpg";
+        }
+    }
 })

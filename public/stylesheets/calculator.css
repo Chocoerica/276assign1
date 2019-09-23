@@ -16,6 +16,13 @@ b{
 p{
     padding-top:8px;
     padding-bottom: 8px;
+    
+}
+.picbutton{
+    border-color:lightskyblue;
+    border:groove;
+    margin:1%;
+    font-size:15px;
 }
 .mainpage{
     padding-left: 20px;
@@ -26,7 +33,7 @@ p{
 }
 .buttons{
     margin-top:15px;
-    padding-left: 870px;
+    padding-left: 80%;
 }
 button {
     background-color: darkred;
@@ -40,28 +47,28 @@ button {
 }
 form {
     background-color: rgb(212, 226, 231);
-    padding:10px;
+    padding:2%;
 }
 table{
     width:96%;
     border: 2px solid silver;
     border-collapse: collapse;
-    padding-left:10px;
-    padding-top: 20px;
-    padding-bottom:20px;
+    padding-left:1%;
+    padding-top: 2%;
+    padding-bottom:2%;
     margin-bottom: 10px;
 }
 th, td {
     border: 2px solid silver;
     border-collapse: collapse;
-    padding-right: 60px;
-    padding-left: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-right: 6%;
+    padding-left: 1%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     
 }
 input{
-    padding:8px;
+    padding:3%;
     margin-top:7px;
     margin-bottom:7px;
 }
