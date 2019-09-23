@@ -1,7 +1,43 @@
-// JavaScript source code
-//list of ID's
-//A1weight, GradeA1num, GradeA1den
-//button IDs --> meanbutton, weightbutton
+// JavaScript code for calculator
+
+const now = new Date();
+document.getElementById("currdate").innerHTML = "The current date and time is "+ now;
+var examday = new Date();
+document.getElementById("examdate").addEventListener('input', function () {
+    var day = document.getElementById("examdate").value;
+    var examyear =day.slice(0,4);
+    var exammonth = day.slice(5,7);
+    var examdate = day.slice(8);
+    console.log(examyear, " ", exammonth, " ", examdate);
+    console.log("and", now);
+    
+    examday.setDate(examdate);
+    examday.setFullYear(examyear);
+    examday.setMonth(exammonth-1);
+    var timeleft = Math.ceil((examday - now) / (1000 * 60 * 60 * 24));
+    console.log("and", timeleft);
+    if (examyear!=2019 && examyear!=2020){
+        document.getElementById("timeleft").innerHTML = "You should only think about this current school year";
+    }
+    else {
+        if (timeleft == 0) {
+            console.log("change1");
+            document.getElementById("timeleft").innerHTML = "Your exam is today!!";
+        }
+        else if (timeleft > 0) {
+            var result = "You have " + timeleft.toString() + " days left until your exam. Time to work hard to change that grade!";
+            document.getElementById("timeleft").innerHTML = result;
+            console.log("change2");
+        }
+        else {
+            console.log("change3");
+            document.getElementById("timeleft").innerHTML = "You do not have time left to change your marks :(";
+        }
+    }
+    
+})
+
+
 function calculatepercentage() {
     //get inputs from form, and see if its possible
     //try to find i --> maybe can do for that
@@ -130,8 +166,9 @@ document.getElementById("picbutton").addEventListener('click', function () {
     //evaluate the result, if there exists a result then a picture will show up depending on how good the result is
     var result = parseInt((document.getElementById("result")).innerHTML);
     if (result.length != 0) { //if there is a result
-        if (result > 100 || result < 0) {
+        if (result > 100 || result < 0 || isNaN(result)) {
             document.getElementById("resimage").src = "images/rawr.png";
+            document.getElementById("resimage").alt = "Use the Calculator properly!";
         }
         else if (result>=50 && result <= 100) {
             //yay pass
