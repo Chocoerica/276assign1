@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Calculator</title>
-    <link rel="stylesheet" href="calculator.css"/>
-    <script src="calculator.js"></script>
+    <link rel="stylesheet" href="stylesheets/calculator.css" />
+    <script src="calculator.js" defer></script>
 </head>
 <body>
     <div style="padding: 10px;background-color:black">
@@ -13,7 +13,7 @@
     </div>
     <div class="mainpage">
         <h1> Grade Calculator</h1>
-        <form>
+        <form id="form1">
             <b style="color: darkred">
                 Activities
             </b>
@@ -21,7 +21,7 @@
             <table>
                 <tr style="background-color: lightgrey">
                     <th>Name</th>
-                    <th style="width:70px;">Short Name</th>
+                    <th>Short Name</th>
                     <th>Weight</th>
                     <th>Grade</th>
                     <th>Percent</th>
@@ -31,97 +31,118 @@
                     <th>A1</th>
                     <th>
                         <input type="text"
-                               id=" weight"
-                               value=" " />
+                               id="A1weight"
+                               name="A1w"
+                               value="" />
                     </th>
                     <th>
                         <input type="text"
-                               id=" Grade1"
-                               value=" " />
+                               name="grades"
+                               value="" />
                         /
                         <br />
                         <input type="text"
-                               id=" Grade2"
-                               value=" " />
+                               name="grades"
+                               value="" />
                     </th>
-                    <th></th>
+                    <th id="percent1"> </th>
                 </tr>
                 <tr>
                     <th>Activity 2</th>
                     <th>A2</th>
                     <th>
                         <input type="text"
-                               id=" weight"
-                               value=" " />
+                               name="A2w"
+                               id="A2weight"
+                               value="" />
                     </th>
                     <th>
                         <input type="text"
-                               id=" Grade1"
-                               value=" " />
+                               name="grades"
+                               value="" />
                         /
                         <br />
                         <input type="text"
-                               id=" Grade2"
-                               value=" " />
+                               name="grades"
+                               value="" />
                     </th>
-                    <th style="padding: 70px">      </th>
+                    <th id="percent2">      </th>
                 </tr>
                 <tr>
                     <th>Activity 3</th>
                     <th>A3</th>
                     <th>
                         <input type="text"
-                               id=" weight"
-                               value=" " />
+                               name="A3w"
+                               id="A3weight"
+                               value="" />
                     </th>
                     <th>
                         <input type="text"
-                               id=" Grade1"
-                               value=" " />
+                               name="grades"
+                               value="" />
                         /
                         <br />
                         <input type="text"
-                               id=" Grade2"
-                               value=" " />
+                               name="grades"
+                               value="" />
                     </th>
-                    <th></th>
+                    <th id="percent3"></th>
                 </tr>
                 <tr>
-                    <th>Activity 4</th>
+                    <th>Activity 4 </th>
                     <th>A4</th>
                     <th>
                         <input type="text"
-                               id=" weight"
-                               value=" " />
+                               name="A4w"
+                               id="A4weight"
+                               value="" />
                     </th>
                     <th>
                         <input type="text"
-                               id=" Grade1"
-                               value=" " />
+                               name="grades"
+                               value="" />
                         /
                         <br />
                         <input type="text"
-                               id=" Grade2"
-                               value=" " />
+                               name="grades"
+                               value="" />
                     </th>
-                    <th></th>
+                    <th id="percent4"></th>
                 </tr>
 
             </table>
-            <b style="color: darkred; margin-top:10px;">
+            <b style="color: darkred; margin-top:10px; margin-bottom:15px;">
                 Result
             </b>
-            <br />
+            <div id="result" style="margin-top:10px; padding-left:10px;">
+
+            </div>
+            <br>
             <div class="buttons">
-                <button>
+                <button type="button" id="weightbutton">
                     WEIGHTED
                 </button>
-                <button>
+                <button type="button" id="meanbutton">
                     MEAN
                 </button>
             </div>
 
         </form>
+        <div>
+            <button type="button" class="picbutton" id="picbutton"> How was my result? </button>
+            <br>
+            <img style="margin-left:30%;" id="resimage" src="images/yay.png" alt="Your reaction when seeing these grades">
+        </div>
+        <div>
+            <p id="currdate"> </p>
+            <form id="form2">
+                <p> Enter your exam date below:</p>
+                <input type="date" id="examdate" name="examdate">
+            </form>
+            <p style="padding-left:10%;" id="timeleft"> </p>
+            <br>
+        </div>
     </div>
     <div style="padding: 10px;padding-bottom: 20px;background-color:black">
 
