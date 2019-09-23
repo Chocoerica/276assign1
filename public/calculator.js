@@ -2,7 +2,42 @@
 //list of ID's
 //A1weight, GradeA1num, GradeA1den
 //button IDs --> meanbutton, weightbutton
+function calculatepercentage() {
+    //get inputs from form, and see if its possible
+    //try to find i --> maybe can do for that
+    //do we have to do this for every row?
+    console.log("test");
+    var x = document.getElementById("form1");   
+    //get inputs from form
+    var rownum = 1;
+    for (var i = 0; i < x.length - 2; i = i + 3) {
+        
+        console.log("row number", rownum)
+        if (!((x.elements[i + 1].value.length == 0) || (x.elements[i + 2].value.length == 0))) { //remove inputs from form if they aren't filled out
+            console.log(x.elements[i + 1].value, " ", x.elements[i + 2].value);
+            var numerator = x.elements[i + 1].value;
+            var denominator =  x.elements[i + 2].value;
+            
+            console.log("start calculate percentage");
+            //calculate percentage
+            var percent = numerator / denominator;
+            console.log(percent);
+            var percentID = "percent" + rownum;
+            console.log("setting at", percentID);
+            document.getElementById(percentID).innerHTML = percent.toString();
+        }
+        rownum++;
+    }    
+}
 
+var textboxes = document.getElementsByName("grades");
+for (var i=0; i<textboxes.length; i++){
+    textboxes[i].addEventListener('keyup', calculatepercentage);
+}
+    
+
+
+//below is all done:
 document.getElementById("meanbutton").addEventListener('click', function () {
     console.log("mean button clicked");
     var x = document.getElementById("form1");
