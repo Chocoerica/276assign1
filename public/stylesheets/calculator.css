@@ -2,6 +2,7 @@
     background-color: darkred;
     padding-left: 30px;
     padding-right: 30px;
+    min-width: 800px;
 }
 h1 {
     font-family: sans-serif;
